@@ -8,15 +8,28 @@ Campo::Campo(QWidget *parent)
     , ui(new Ui::Campo)
 {
     ui->setupUi(this);
+
+    // inicializando nome dos botões no estilo de matriz pra ficar mais fácil de
+    // entender
+
     M1.button = "00";
+    M1.is_blocked = false;
     M2.button = "01";
+    M2.is_blocked = false;
     M3.button = "02";
+    M3.is_blocked = false;
     M4.button = "10";
+    M4.is_blocked = false;
     M5.button = "11";
+    M5.is_blocked = false;
     M6.button = "12";
+    M6.is_blocked = false;
     M7.button = "20";
+    M7.is_blocked = false;
     M8.button = "21";
+    M8.is_blocked = false;
     M9.button = "22";
+    M9.is_blocked = false;
 }
 
 Campo::~Campo()
@@ -110,7 +123,6 @@ void Campo::openSignals(){
     for (int i = 0; i < m_listPushButton.size(); ++i) {
         connect(m_listPushButton[i], SIGNAL(clicked()), this, SLOT(changeJogador()));
     }
-
 }
 
 void Campo::sortSlots(){
@@ -129,15 +141,22 @@ void Campo::sortSlots(){
 void Campo::on_clicked_btn_00(){
     m_listPushButton[0]->setText(getMarca());
     M1.marca = getMarca();
+    M1.is_blocked = true;
+    m_listPushButton[0]->setEnabled(false);
 }
 void Campo::on_clicked_btn_01(){
     m_listPushButton[1]->setText(getMarca());
     M2.marca = getMarca();
+    M2.is_blocked = true;
+    m_listPushButton[1]->setEnabled(false);
 
 }
 void Campo::on_clicked_btn_02(){
     m_listPushButton[2]->setText(getMarca());
     M3.marca = getMarca();
+    M3.is_blocked = true;
+    m_listPushButton[2]->setEnabled(false);
+
 }
 
 // Linha 2
@@ -145,27 +164,46 @@ void Campo::on_clicked_btn_10(){
 
     m_listPushButton[3]->setText(getMarca());
     M4.marca = getMarca();
+    M4.is_blocked = true;
+    m_listPushButton[3]->setEnabled(false);
+
 }
 void Campo::on_clicked_btn_11(){
     m_listPushButton[4]->setText(getMarca());
     M5.marca = getMarca();
+    M5.is_blocked = true;
+    m_listPushButton[4]->setEnabled(false);
+
 }
 void Campo::on_clicked_btn_12(){
     m_listPushButton[5]->setText(getMarca());
     M6.marca = getMarca();
+    M6.is_blocked = true;
+    m_listPushButton[5]->setEnabled(false);
+
 }
 
 // Linha 3
 void Campo::on_clicked_btn_20(){
     m_listPushButton[6]->setText(getMarca());
     M7.marca = getMarca();
+    M7.is_blocked = true;
+    m_listPushButton[6]->setEnabled(false);
+
 }
 void Campo::on_clicked_btn_21(){
     m_listPushButton[7]->setText(getMarca());
     M8.marca = getMarca();
+    M8.is_blocked = true;
+    m_listPushButton[7]->setEnabled(false);
+
 }
 void Campo::on_clicked_btn_22(){
     m_listPushButton[8]->setText(getMarca());
     M9.marca = getMarca();
+    M9.is_blocked = true;
+    m_listPushButton[8]->setEnabled(false);
 }
+
+
 

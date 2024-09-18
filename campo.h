@@ -19,6 +19,7 @@ public:
     struct matrix_btn{
         QString marca;
         QString button;
+        bool is_blocked;
     };
     typedef matrix_btn Matrix;
     struct position
