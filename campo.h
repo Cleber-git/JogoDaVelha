@@ -78,6 +78,8 @@ private:
     Matrix M9;
     QVector<Matrix> listOfMatrix;
     bool verifyIfWin();
+    void setStyleImage(QPushButton *_button, QString _marca);
+    void clearMarca();
 };
 
 #endif // CAMPO_H

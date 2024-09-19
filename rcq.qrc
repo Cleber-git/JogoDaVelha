@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/ferramentas">
+        <file>o.png</file>
+        <file>x.png</file>
+    </qresource>
+</RCC>

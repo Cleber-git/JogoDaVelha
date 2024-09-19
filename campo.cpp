@@ -143,7 +143,9 @@ void Campo::sortSlots(){
 
 // Linha 1
 void Campo::on_clicked_btn_00(){
-    m_listPushButton[0]->setText(getMarca());
+     setStyleImage(m_listPushButton[0], getMarca());
+    M1.is_blocked = true;
+    m_listPushButton[0]->setEnabled(false);
     M1.marca = getMarca();
     if(verifyIfWin()){
         qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
@@ -151,13 +153,14 @@ void Campo::on_clicked_btn_00(){
             _button->setEnabled(true);
             _button->setText("");
         }
+        clearMarca();
         return;
     }
-    M1.is_blocked = true;
-    m_listPushButton[0]->setEnabled(false);
 }
 void Campo::on_clicked_btn_01(){
-    m_listPushButton[1]->setText(getMarca());
+    setStyleImage(m_listPushButton[1], getMarca());
+    M2.is_blocked = true;
+    m_listPushButton[1]->setEnabled(false);
     M2.marca = getMarca();
     if(verifyIfWin()){
         qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
@@ -165,14 +168,15 @@ void Campo::on_clicked_btn_01(){
             _button->setEnabled(true);
             _button->setText("");
         }
+        clearMarca();
         return;
     }
-    M2.is_blocked = true;
-    m_listPushButton[1]->setEnabled(false);
 
 }
 void Campo::on_clicked_btn_02(){
-    m_listPushButton[2]->setText(getMarca());
+     setStyleImage(m_listPushButton[2], getMarca());
+    M3.is_blocked = true;
+    m_listPushButton[2]->setEnabled(false);
     M3.marca = getMarca();
     if(verifyIfWin()){
         qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
@@ -180,17 +184,18 @@ void Campo::on_clicked_btn_02(){
             _button->setEnabled(true);
             _button->setText("");
         }
+        clearMarca();
         return;
     }
-    M3.is_blocked = true;
-    m_listPushButton[2]->setEnabled(false);
 
 }
 
 // Linha 2
 void Campo::on_clicked_btn_10(){
 
-    m_listPushButton[3]->setText(getMarca());
+     setStyleImage(m_listPushButton[3], getMarca());
+    M4.is_blocked = true;
+    m_listPushButton[3]->setEnabled(false);
     M4.marca = getMarca();
     if(verifyIfWin()){
         qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
@@ -198,14 +203,15 @@ void Campo::on_clicked_btn_10(){
             _button->setEnabled(true);
             _button->setText("");
         }
+        clearMarca();
         return;
     }
-    M4.is_blocked = true;
-    m_listPushButton[3]->setEnabled(false);
 
 }
 void Campo::on_clicked_btn_11(){
-    m_listPushButton[4]->setText(getMarca());
+     setStyleImage(m_listPushButton[4], getMarca());
+    M5.is_blocked = true;
+    m_listPushButton[4]->setEnabled(false);
     M5.marca = getMarca();
     if(verifyIfWin()){
         qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
@@ -213,14 +219,15 @@ void Campo::on_clicked_btn_11(){
             _button->setEnabled(true);
             _button->setText("");
         }
+        clearMarca();
         return;
     }
-    M5.is_blocked = true;
-    m_listPushButton[4]->setEnabled(false);
 
 }
 void Campo::on_clicked_btn_12(){
-    m_listPushButton[5]->setText(getMarca());
+     setStyleImage(m_listPushButton[5], getMarca());
+    M6.is_blocked = true;
+    m_listPushButton[5]->setEnabled(false);
     M6.marca = getMarca();
     if(verifyIfWin()){
         qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
@@ -228,16 +235,17 @@ void Campo::on_clicked_btn_12(){
             _button->setEnabled(true);
             _button->setText("");
         }
+        clearMarca();
         return;
     }
-    M6.is_blocked = true;
-    m_listPushButton[5]->setEnabled(false);
 
 }
 
 // Linha 3
 void Campo::on_clicked_btn_20(){
-    m_listPushButton[6]->setText(getMarca());
+    setStyleImage(m_listPushButton[6], getMarca());
+    M7.is_blocked = true;
+    m_listPushButton[6]->setEnabled(false);
     M7.marca = getMarca();
     if(verifyIfWin()){
         qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
@@ -245,29 +253,32 @@ void Campo::on_clicked_btn_20(){
             _button->setEnabled(true);
             _button->setText("");
         }
+        clearMarca();
         return;
     }
-    M7.is_blocked = true;
-    m_listPushButton[6]->setEnabled(false);
 
 }
 void Campo::on_clicked_btn_21(){
-    m_listPushButton[7]->setText(getMarca());
+    setStyleImage(m_listPushButton[7], getMarca());
+    M8.is_blocked = true;
+    m_listPushButton[7]->setEnabled(false);
     M8.marca = getMarca();
     if(verifyIfWin()){
         qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
         for (QPushButton *_button: m_listPushButton) {
             _button->setEnabled(true);
             _button->setText("");
+
         }
+        clearMarca();
         return;
     }
-    M8.is_blocked = true;
-    m_listPushButton[7]->setEnabled(false);
 
 }
 void Campo::on_clicked_btn_22(){
-    m_listPushButton[8]->setText(getMarca());
+    setStyleImage(m_listPushButton[8], getMarca());
+    M9.is_blocked = true;
+    m_listPushButton[8]->setEnabled(false);
     M9.marca = getMarca();
     if(verifyIfWin()){
         qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
@@ -275,10 +286,9 @@ void Campo::on_clicked_btn_22(){
             _button->setEnabled(true);
             _button->setText("");
         }
+        clearMarca();
         return;
     }
-    M9.is_blocked = true;
-    m_listPushButton[8]->setEnabled(false);
 }
 
 bool Campo::verifyIfWin(){
@@ -301,12 +311,27 @@ bool Campo::verifyIfWin(){
     return false;
 }
 
+void Campo::clearMarca(){
+    M1.marca = "";
+    M2.marca = "";
+    M3.marca = "";
+    M4.marca = "";
+    M5.marca = "";
+    M6.marca = "";
+    M7.marca = "";
+    M8.marca = "";
+    M9.marca = "";
+}
 
-
-
-
-
-
+void Campo::setStyleImage(QPushButton *_button, QString _marca){
+    if(_marca == "x"){
+        _button->setStyleSheet("Color:red; font-weight: bold ; font-size: 18px ;");
+        _button->setText("x");
+    }else{
+        _button->setStyleSheet("Color:green; font-weight: bold ; font-size: 18px ;");
+        _button->setText("o");
+    }
+}
 
 
 
