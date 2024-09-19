@@ -12,6 +12,16 @@ Campo::Campo(QWidget *parent)
     // inicializando nome dos botões no estilo de matriz pra ficar mais fácil de
     // entender
 
+    listOfMatrix.push_back(M1);
+    listOfMatrix.push_back(M2);
+    listOfMatrix.push_back(M3);
+    listOfMatrix.push_back(M4);
+    listOfMatrix.push_back(M5);
+    listOfMatrix.push_back(M6);
+    listOfMatrix.push_back(M7);
+    listOfMatrix.push_back(M8);
+    listOfMatrix.push_back(M9);
+
     M1.button = "00";
     M1.is_blocked = false;
     M2.button = "01";
@@ -61,7 +71,7 @@ void Campo::showField(){
 
 void Campo::createWidgets(QMainWindow *w){
 
-    //criando botões e agrupando no qvector para ter fácil acesso
+    // Criando botões e agrupando no qvector para ter fácil acesso
     QPushButton* btn_00 = new QPushButton(w);
     m_listPushButton.push_back(btn_00);
 
@@ -94,6 +104,7 @@ void Campo::createWidgets(QMainWindow *w){
 // Método que vai mudar de qual jogardor é a vez
 
 void Campo::changeJogador(){
+
     switch (m_jogador) {
     case 1:
         m_jogador = 2;
@@ -111,13 +122,6 @@ void Campo::changeJogador(){
         break;
     }
 }
-
-// void Campo::verifyWhenPlay(){
-//     if(m_jogador == 1){
-//         changeJogador();
-//         qDebug() << "jogador: " << QString::number(m_jogador);
-//     }
-// }
 
 void Campo::openSignals(){
     for (int i = 0; i < m_listPushButton.size(); ++i) {
@@ -141,12 +145,28 @@ void Campo::sortSlots(){
 void Campo::on_clicked_btn_00(){
     m_listPushButton[0]->setText(getMarca());
     M1.marca = getMarca();
+    if(verifyIfWin()){
+        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
+        for (QPushButton *_button: m_listPushButton) {
+            _button->setEnabled(true);
+            _button->setText("");
+        }
+        return;
+    }
     M1.is_blocked = true;
     m_listPushButton[0]->setEnabled(false);
 }
 void Campo::on_clicked_btn_01(){
     m_listPushButton[1]->setText(getMarca());
     M2.marca = getMarca();
+    if(verifyIfWin()){
+        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
+        for (QPushButton *_button: m_listPushButton) {
+            _button->setEnabled(true);
+            _button->setText("");
+        }
+        return;
+    }
     M2.is_blocked = true;
     m_listPushButton[1]->setEnabled(false);
 
@@ -154,6 +174,14 @@ void Campo::on_clicked_btn_01(){
 void Campo::on_clicked_btn_02(){
     m_listPushButton[2]->setText(getMarca());
     M3.marca = getMarca();
+    if(verifyIfWin()){
+        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
+        for (QPushButton *_button: m_listPushButton) {
+            _button->setEnabled(true);
+            _button->setText("");
+        }
+        return;
+    }
     M3.is_blocked = true;
     m_listPushButton[2]->setEnabled(false);
 
@@ -164,6 +192,14 @@ void Campo::on_clicked_btn_10(){
 
     m_listPushButton[3]->setText(getMarca());
     M4.marca = getMarca();
+    if(verifyIfWin()){
+        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
+        for (QPushButton *_button: m_listPushButton) {
+            _button->setEnabled(true);
+            _button->setText("");
+        }
+        return;
+    }
     M4.is_blocked = true;
     m_listPushButton[3]->setEnabled(false);
 
@@ -171,6 +207,14 @@ void Campo::on_clicked_btn_10(){
 void Campo::on_clicked_btn_11(){
     m_listPushButton[4]->setText(getMarca());
     M5.marca = getMarca();
+    if(verifyIfWin()){
+        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
+        for (QPushButton *_button: m_listPushButton) {
+            _button->setEnabled(true);
+            _button->setText("");
+        }
+        return;
+    }
     M5.is_blocked = true;
     m_listPushButton[4]->setEnabled(false);
 
@@ -178,6 +222,14 @@ void Campo::on_clicked_btn_11(){
 void Campo::on_clicked_btn_12(){
     m_listPushButton[5]->setText(getMarca());
     M6.marca = getMarca();
+    if(verifyIfWin()){
+        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
+        for (QPushButton *_button: m_listPushButton) {
+            _button->setEnabled(true);
+            _button->setText("");
+        }
+        return;
+    }
     M6.is_blocked = true;
     m_listPushButton[5]->setEnabled(false);
 
@@ -187,6 +239,14 @@ void Campo::on_clicked_btn_12(){
 void Campo::on_clicked_btn_20(){
     m_listPushButton[6]->setText(getMarca());
     M7.marca = getMarca();
+    if(verifyIfWin()){
+        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
+        for (QPushButton *_button: m_listPushButton) {
+            _button->setEnabled(true);
+            _button->setText("");
+        }
+        return;
+    }
     M7.is_blocked = true;
     m_listPushButton[6]->setEnabled(false);
 
@@ -194,6 +254,14 @@ void Campo::on_clicked_btn_20(){
 void Campo::on_clicked_btn_21(){
     m_listPushButton[7]->setText(getMarca());
     M8.marca = getMarca();
+    if(verifyIfWin()){
+        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
+        for (QPushButton *_button: m_listPushButton) {
+            _button->setEnabled(true);
+            _button->setText("");
+        }
+        return;
+    }
     M8.is_blocked = true;
     m_listPushButton[7]->setEnabled(false);
 
@@ -201,9 +269,87 @@ void Campo::on_clicked_btn_21(){
 void Campo::on_clicked_btn_22(){
     m_listPushButton[8]->setText(getMarca());
     M9.marca = getMarca();
+    if(verifyIfWin()){
+        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
+        for (QPushButton *_button: m_listPushButton) {
+            _button->setEnabled(true);
+            _button->setText("");
+        }
+        return;
+    }
     M9.is_blocked = true;
     m_listPushButton[8]->setEnabled(false);
 }
+
+bool Campo::verifyIfWin(){
+    //Possibilidade 1
+    if((M1.marca != "" && M1.marca== M2.marca) &&( M2.marca != "" && M2.marca == M3.marca)) {return true;}
+    //Possibilidade 2
+    if((M4.marca != "" && M4.marca == M5.marca)  && (M5.marca != "" && M5.marca == M6.marca)) { return true;}
+    //Possibilidade 3
+    if((M7.marca != "" && M7.marca == M8.marca )&& (M8.marca != "" && M8.marca == M9.marca))  { return true;}
+    //Possibilidade 4
+    if((M1.marca!= "" && M1.marca == M4.marca) &&( M4.marca != "" && M4.marca == M7.marca))  { return true;}
+    //Possibilidade 5
+    if((M2.marca != "" && M2.marca == M5.marca) && (M5.marca != "" && M5.marca == M8.marca)) { return true;}
+    //Possibilidade 7
+    if((M3.marca != "" && M3.marca == M6.marca) &&( M6.marca!= "" && M6.marca == M9.marca)) { return true;}
+    //Possibilidade 8
+    if((M1.marca != "" && M1.marca == M5.marca) &&( M5.marca != "" && M5.marca == M9.marca)) { return true;}
+    //Possibilidade 9
+    if((M3.marca != "" && M3.marca == M5.marca) && (M5.marca != "" && M5.marca == M7.marca)) {return true;}
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

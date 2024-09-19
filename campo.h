@@ -30,17 +30,22 @@ public:
         int h;
     };
     typedef position Pos;
+
     explicit Campo(QWidget *parent = nullptr);
+
     ~Campo();
+
     void showField();
+
     void createWidgets(QMainWindow *w);
+
     QString getMarca(){return m_marca;}
+
     int getJogador(){return m_jogador;}
-    // void verifyWhenPlay();
+
     void openSignals();
+
     void sortSlots();
-
-
 
 public slots:
     void changeJogador();
@@ -71,8 +76,8 @@ private:
     Matrix M7;
     Matrix M8;
     Matrix M9;
-
-
+    QVector<Matrix> listOfMatrix;
+    bool verifyIfWin();
 };
 
 #endif // CAMPO_H
