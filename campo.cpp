@@ -155,6 +155,7 @@ void Campo::on_clicked_btn_00(){
         for (QPushButton *_button: m_listPushButton) {
             _button->setEnabled(true);
             _button->setText("");
+            _button->setStyleSheet("background:white;");
         }
         clearMarca();
         return;
@@ -170,6 +171,7 @@ void Campo::on_clicked_btn_01(){
         for (QPushButton *_button: m_listPushButton) {
             _button->setEnabled(true);
             _button->setText("");
+            _button->setStyleSheet("background:white;");
         }
         clearMarca();
         return;
@@ -186,6 +188,7 @@ void Campo::on_clicked_btn_02(){
         for (QPushButton *_button: m_listPushButton) {
             _button->setEnabled(true);
             _button->setText("");
+            _button->setStyleSheet("background:white;");
         }
         clearMarca();
         return;
@@ -205,6 +208,7 @@ void Campo::on_clicked_btn_10(){
         for (QPushButton *_button: m_listPushButton) {
             _button->setEnabled(true);
             _button->setText("");
+            _button->setStyleSheet("background:white;");
         }
         clearMarca();
         return;
@@ -221,6 +225,7 @@ void Campo::on_clicked_btn_11(){
         for (QPushButton *_button: m_listPushButton) {
             _button->setEnabled(true);
             _button->setText("");
+            _button->setStyleSheet("background:white;");
         }
         clearMarca();
         return;
@@ -237,6 +242,7 @@ void Campo::on_clicked_btn_12(){
         for (QPushButton *_button: m_listPushButton) {
             _button->setEnabled(true);
             _button->setText("");
+            _button->setStyleSheet("background:white;");
         }
         clearMarca();
         return;
@@ -255,6 +261,7 @@ void Campo::on_clicked_btn_20(){
         for (QPushButton *_button: m_listPushButton) {
             _button->setEnabled(true);
             _button->setText("");
+            _button->setStyleSheet("background:white;");
         }
         clearMarca();
         return;
@@ -271,7 +278,7 @@ void Campo::on_clicked_btn_21(){
         for (QPushButton *_button: m_listPushButton) {
             _button->setEnabled(true);
             _button->setText("");
-
+            _button->setStyleSheet("background:white;");
         }
         clearMarca();
         return;
@@ -289,7 +296,6 @@ void Campo::on_clicked_btn_22(){
             _button->setEnabled(true);
             _button->setText("");
             _button->setStyleSheet("background:white;");
-            qDebug()<< "limpei";
         }
         clearMarca();
         return;
@@ -328,8 +334,6 @@ void Campo::clearMarca(){
     M7.marca = "";
     M8.marca = "";
     M9.marca = "";
-
-
 }
 
 void Campo::setStyleImage(QPushButton *_button, QString _marca){
@@ -342,48 +346,18 @@ void Campo::setStyleImage(QPushButton *_button, QString _marca){
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+QString Campo::verifyQtd(QString _marca){
+    QString firstPos;
+    int count = 0;
+    for (Matrix _m : listOfMatrix) {
+        if (_m.is_blocked && _m.marca == _marca) {
+            count++;
+            if (count == 3){
+                firstPos = _m.button;
+                break;
+            }
+        }
+    }
+    return firstPos;
+}
 

@@ -16,6 +16,7 @@ class Campo : public QWidget
 
 
 public:
+
     struct matrix_btn{
         QString marca;
         QString button;
@@ -80,6 +81,9 @@ private:
     bool verifyIfWin();
     void setStyleImage(QPushButton *_button, QString _marca);
     void clearMarca();
+    QString verifyQtd(QString _marca);
+
+
 };
 
 #endif // CAMPO_H
