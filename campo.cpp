@@ -72,6 +72,7 @@ void Campo::showField(){
 void Campo::createWidgets(QMainWindow *w){
 
     // Criando botões e agrupando no qvector para ter fácil acesso
+
     QPushButton* btn_00 = new QPushButton(w);
     m_listPushButton.push_back(btn_00);
 
@@ -130,6 +131,7 @@ void Campo::openSignals(){
 }
 
 void Campo::sortSlots(){
+
     connect(m_listPushButton[0], SIGNAL(clicked(bool)),this, SLOT(on_clicked_btn_00()));
     connect(m_listPushButton[1], SIGNAL(clicked(bool)),this, SLOT(on_clicked_btn_01()));
     connect(m_listPushButton[2], SIGNAL(clicked(bool)),this, SLOT(on_clicked_btn_02()));
@@ -139,6 +141,7 @@ void Campo::sortSlots(){
     connect(m_listPushButton[6], SIGNAL(clicked(bool)),this, SLOT(on_clicked_btn_20()));
     connect(m_listPushButton[7], SIGNAL(clicked(bool)),this, SLOT(on_clicked_btn_21()));
     connect(m_listPushButton[8], SIGNAL(clicked(bool)),this, SLOT(on_clicked_btn_22()));
+
 }
 
 // Linha 1
@@ -285,6 +288,8 @@ void Campo::on_clicked_btn_22(){
         for (QPushButton *_button: m_listPushButton) {
             _button->setEnabled(true);
             _button->setText("");
+            _button->setStyleSheet("background:white;");
+            qDebug()<< "limpei";
         }
         clearMarca();
         return;
@@ -292,6 +297,7 @@ void Campo::on_clicked_btn_22(){
 }
 
 bool Campo::verifyIfWin(){
+
     //Possibilidade 1
     if((M1.marca != "" && M1.marca== M2.marca) &&( M2.marca != "" && M2.marca == M3.marca)) {return true;}
     //Possibilidade 2
@@ -309,6 +315,7 @@ bool Campo::verifyIfWin(){
     //Possibilidade 9
     if((M3.marca != "" && M3.marca == M5.marca) && (M5.marca != "" && M5.marca == M7.marca)) {return true;}
     return false;
+
 }
 
 void Campo::clearMarca(){
@@ -321,14 +328,16 @@ void Campo::clearMarca(){
     M7.marca = "";
     M8.marca = "";
     M9.marca = "";
+
+
 }
 
 void Campo::setStyleImage(QPushButton *_button, QString _marca){
     if(_marca == "x"){
-        _button->setStyleSheet("Color:red; font-weight: bold ; font-size: 18px ;");
+        _button->setStyleSheet("Color:red; font-weight: bold ; font-size: 150px ;margin-top: -50px ;background: black ;");
         _button->setText("x");
     }else{
-        _button->setStyleSheet("Color:green; font-weight: bold ; font-size: 18px ;");
+        _button->setStyleSheet("Color:green; font-weight: bold ; font-size: 150px ; margin-top: -50px ;background: black ;");
         _button->setText("o");
     }
 }
