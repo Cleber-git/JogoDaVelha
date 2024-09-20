@@ -105,7 +105,7 @@ void Campo::createWidgets(QMainWindow *w){
 // Método que vai mudar de qual jogardor é a vez
 
 void Campo::changeJogador(){
-
+    // if(verifyQtd("O") == ){}
     switch (m_jogador) {
     case 1:
         m_jogador = 2;
@@ -150,50 +150,21 @@ void Campo::on_clicked_btn_00(){
     M1.is_blocked = true;
     m_listPushButton[0]->setEnabled(false);
     M1.marca = getMarca();
-    if(verifyIfWin()){
-        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
-        for (QPushButton *_button: m_listPushButton) {
-            _button->setEnabled(true);
-            _button->setText("");
-            _button->setStyleSheet("background:white;");
-        }
-        clearMarca();
-        return;
-    }
+    win();
 }
 void Campo::on_clicked_btn_01(){
     setStyleImage(m_listPushButton[1], getMarca());
     M2.is_blocked = true;
     m_listPushButton[1]->setEnabled(false);
     M2.marca = getMarca();
-    if(verifyIfWin()){
-        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
-        for (QPushButton *_button: m_listPushButton) {
-            _button->setEnabled(true);
-            _button->setText("");
-            _button->setStyleSheet("background:white;");
-        }
-        clearMarca();
-        return;
-    }
-
+    win();
 }
 void Campo::on_clicked_btn_02(){
      setStyleImage(m_listPushButton[2], getMarca());
     M3.is_blocked = true;
     m_listPushButton[2]->setEnabled(false);
     M3.marca = getMarca();
-    if(verifyIfWin()){
-        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
-        for (QPushButton *_button: m_listPushButton) {
-            _button->setEnabled(true);
-            _button->setText("");
-            _button->setStyleSheet("background:white;");
-        }
-        clearMarca();
-        return;
-    }
-
+    win();
 }
 
 // Linha 2
@@ -203,51 +174,21 @@ void Campo::on_clicked_btn_10(){
     M4.is_blocked = true;
     m_listPushButton[3]->setEnabled(false);
     M4.marca = getMarca();
-    if(verifyIfWin()){
-        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
-        for (QPushButton *_button: m_listPushButton) {
-            _button->setEnabled(true);
-            _button->setText("");
-            _button->setStyleSheet("background:white;");
-        }
-        clearMarca();
-        return;
-    }
-
+    win();
 }
 void Campo::on_clicked_btn_11(){
      setStyleImage(m_listPushButton[4], getMarca());
     M5.is_blocked = true;
     m_listPushButton[4]->setEnabled(false);
     M5.marca = getMarca();
-    if(verifyIfWin()){
-        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
-        for (QPushButton *_button: m_listPushButton) {
-            _button->setEnabled(true);
-            _button->setText("");
-            _button->setStyleSheet("background:white;");
-        }
-        clearMarca();
-        return;
-    }
-
+    win();
 }
 void Campo::on_clicked_btn_12(){
      setStyleImage(m_listPushButton[5], getMarca());
     M6.is_blocked = true;
     m_listPushButton[5]->setEnabled(false);
     M6.marca = getMarca();
-    if(verifyIfWin()){
-        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
-        for (QPushButton *_button: m_listPushButton) {
-            _button->setEnabled(true);
-            _button->setText("");
-            _button->setStyleSheet("background:white;");
-        }
-        clearMarca();
-        return;
-    }
-
+    win();
 }
 
 // Linha 3
@@ -256,50 +197,24 @@ void Campo::on_clicked_btn_20(){
     M7.is_blocked = true;
     m_listPushButton[6]->setEnabled(false);
     M7.marca = getMarca();
-    if(verifyIfWin()){
-        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
-        for (QPushButton *_button: m_listPushButton) {
-            _button->setEnabled(true);
-            _button->setText("");
-            _button->setStyleSheet("background:white;");
-        }
-        clearMarca();
-        return;
-    }
-
+    win();
 }
+
 void Campo::on_clicked_btn_21(){
     setStyleImage(m_listPushButton[7], getMarca());
     M8.is_blocked = true;
     m_listPushButton[7]->setEnabled(false);
     M8.marca = getMarca();
-    if(verifyIfWin()){
-        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
-        for (QPushButton *_button: m_listPushButton) {
-            _button->setEnabled(true);
-            _button->setText("");
-            _button->setStyleSheet("background:white;");
-        }
-        clearMarca();
-        return;
-    }
-
+    win();
 }
+
 void Campo::on_clicked_btn_22(){
     setStyleImage(m_listPushButton[8], getMarca());
     M9.is_blocked = true;
     m_listPushButton[8]->setEnabled(false);
     M9.marca = getMarca();
-    if(verifyIfWin()){
-        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
-        for (QPushButton *_button: m_listPushButton) {
-            _button->setEnabled(true);
-            _button->setText("");
-            _button->setStyleSheet("background:white;");
-        }
-        clearMarca();
-        return;
-    }
+    win();
+
 }
 
 bool Campo::verifyIfWin(){
@@ -346,18 +261,32 @@ void Campo::setStyleImage(QPushButton *_button, QString _marca){
     }
 }
 
-QString Campo::verifyQtd(QString _marca){
-    QString firstPos;
-    int count = 0;
-    for (Matrix _m : listOfMatrix) {
-        if (_m.is_blocked && _m.marca == _marca) {
-            count++;
-            if (count == 3){
-                firstPos = _m.button;
-                break;
-            }
-        }
-    }
-    return firstPos;
-}
+// QMap<QString, int> Campo::verifyQtd(QString _marca){
+//     QMap<QString, int> pos;
+//     QString firstPos;
+//     int count = 0;
+//     for (Matrix _m : listOfMatrix) {
+//         if (_m.is_blocked && _m.marca == _marca) {
+//             count++;
+//             if (count == 3){
+//                 firstPos = _m.button;
+//                 break;
+//             }
+//         }
+//     }
+//     return pos;
+// }
 
+
+void Campo::win(){
+    if(verifyIfWin()){
+        qDebug()<< "jogador: "<< QString::number(m_jogador) << " venceu";
+        for (QPushButton *_button: m_listPushButton) {
+            _button->setEnabled(true);
+            _button->setText("");
+            _button->setStyleSheet("background:white;");
+        }
+        clearMarca();
+        return;
+    }
+}

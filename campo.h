@@ -81,8 +81,8 @@ private:
     bool verifyIfWin();
     void setStyleImage(QPushButton *_button, QString _marca);
     void clearMarca();
-    QString verifyQtd(QString _marca);
-
+    QMap<QString, int> verifyQtd(QString _marca);
+    void win();
 
 };
 
